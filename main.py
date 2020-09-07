@@ -3,15 +3,19 @@ from os import system, name
 from difflib import get_close_matches
 
 with open("data.json", "r") as rfile:
-   data = json.load(rfile)
+    data = json.load(rfile)
 
-def clear():
-    if name == "posix":
-        _ = system("clear")
+def addPosition(key = "", value = ""):
+    if value != "" and key not in data:
+        data.setdefault(key, [])
+        data[key].append(value)
+        return "Word added successfully."
+    elif key in data:
+        return "Word already exists in the dictionary.\nTry adding a new definition."
     else:
-        _ = system("cls")    
+        return "Cannot add the word without a definition."      
 
-def getDef(key):
+def getDef(key = ""):
     if key.lower() in data or key.upper() in data or key.title() in data:
         return data[key]
     elif len(get_close_matches(key, data.keys(), cutoff = 0.8)) == 1:
@@ -23,6 +27,22 @@ def getDef(key):
     else:
         return "Word does not appear to be in the dictionary."
 
+def addDefin(key="", value=""):
+    if value != "" and key in data:
+       data[key].append(value)
+
+def delPosition(key = ""):
+    if key in data:
+        del data[key]
+        return "Word deleted successfully."
+    else:
+        return "Word does not appear to be in the dictionary."
+        
+def saveDic():
+    with open("data.json", "w") as wfile:
+        json.dump(data, wfile, sort_keys = True, indent = 4)
+    return ("Dictionary saved successfully.")    
+'''
 def addPosition():
     key = input("Insert the word: ")
     value = input("Insert definition: ")
@@ -52,7 +72,7 @@ def delPosition():
     else:
         print("The word doesn't appear to be in a dictionary.")
 
-def SaveDic():
+def saveDic():
     with open("data.json", "w") as wfile:
         json.dump(data, wfile, sort_keys = True, indent = 4)
     print("Dictionary saved.")    
@@ -87,7 +107,7 @@ while choice != "6":
     elif choice == "4":
         delPosition()
     elif choice == "5":
-        SaveDic()
+        saveDic()
         ifSaved = True
     elif choice != "6":
         print("No such option in the menu.")
@@ -98,3 +118,4 @@ while choice != "6":
     if choice != "6":    
         input()            
         clear()
+'''
