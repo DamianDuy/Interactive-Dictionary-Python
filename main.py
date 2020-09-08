@@ -30,6 +30,11 @@ def getDef(key = ""):
 def addDefin(key="", value=""):
     if value != "" and key in data:
        data[key].append(value)
+       return "Definition added to the word '%s' successfully." %key
+    elif key not in data:
+        return "Word does not appear to be in the dictionary."
+    else:
+        return "Cannot add an empty definition."       
 
 def delPosition(key = ""):
     if key in data:
