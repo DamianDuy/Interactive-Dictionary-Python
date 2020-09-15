@@ -63,21 +63,21 @@ list1.configure(yscrollcommand = sb1.set)
 sb1.configure(command = list1.yview)
 
 b1 = Button(window, text = "Look up the word", width = 15, command = getDefComm)
-b1.grid(row = 2, column = 3)
+b1.grid(row = 2, column = 3, padx = 5, pady = 5)
 
 b2 = Button(window, text = "Add the word", width = 15, command = addPositionComm)
-b2.grid(row = 3, column = 3)
+b2.grid(row = 3, column = 3, padx = 5, pady = 5)
 
 b3 = Button(window, text = "Add a definition", width = 15, command = addDefinComm)
-b3.grid(row = 4, column = 3)
+b3.grid(row = 4, column = 3, padx = 5, pady = 5)
 
 b4 = Button(window, text = "Delete the word", width = 15, command = delPositionComm)
-b4.grid(row = 5, column = 3)
+b4.grid(row = 5, column = 3, padx = 5, pady = 5)
 
 b5 = Button(window, text = "Save your dictionary", width = 15, command = saveDicComm)
-b5.grid(row = 6, column = 3)
+b5.grid(row = 6, column = 3, padx = 5, pady = 5)
 
 b6 = Button(window, text = "Exit", width = 15, command = window.destroy)
-b6.grid(row = 7, column = 3)
+b6.grid(row = 7, column = 3, padx = 5, pady = 5)
 
 window.mainloop()
