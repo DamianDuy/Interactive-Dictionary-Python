@@ -43,7 +43,7 @@ class Dictionary:
            self.data = json.load(rfile)
 
     def getDef(self, key):
-       if key.lower() in self.data or key.upper() in self.data or key.title() in self.data:
+       if key in self.data:
            return self.data[key]
        elif len(get_close_matches(key, self.data.keys(), cutoff=0.8)) == 1:
            return "Did you mean %s instead?" % get_close_matches(key, self.data.keys())[0]

@@ -1,5 +1,7 @@
 from tkinter import *
-import main
+from main import Dictionary
+
+dictionary = Dictionary()
 
 class Widgets:
    def __init__(self, window):
@@ -50,10 +52,10 @@ class Widgets:
    def getDefComm(self):
        self.list1.delete(0, END)
        i = 1
-       if isinstance(main.getDef(self.word_text.get()), str):
-           self.list1.insert(END, main.getDef(self.word_text.get()))
+       if isinstance(dictionary.getDef(self.word_text.get()), str):
+           self.list1.insert(END, dictionary.getDef(self.word_text.get()))
        else:
-          for defin in main.getDef(self.word_text.get()):
+          for defin in dictionary.getDef(self.word_text.get()):
               self.list1.insert(END, str(i) + ". " + defin)
               i += 1
        self.e1.delete(0, "end")
@@ -61,26 +63,26 @@ class Widgets:
 
    def addDefinComm(self):
        self.list1.delete(0, END)
-       self.list1.insert(END, main.addDefin(self.word_text.get(), self.def_text.get()))
+       self.list1.insert(END, dictionary.addDefin(self.word_text.get(), self.def_text.get()))
        self.e1.delete(0, "end")
        self.e2.delete(0, END)
 
    def addPositionComm(self):
         self.list1.delete(0, END)
-        self.list1.insert(END, main.addPosition(self.word_text.get(), self.def_text.get()))
+        self.list1.insert(END, dictionary.addPosition(self.word_text.get(), self.def_text.get()))
         self.e1.delete(0, "end")
         self.e2.delete(0, "end")
 
    def delPositionComm(self):
        self.list1.delete(0, END)
-       self.list1.insert(END, main.delPosition(self.word_text.get()))
-       main.delPosition(self.word_text.get())
+       self.list1.insert(END, dictionary.delPosition(self.word_text.get()))
+       dictionary.delPosition(self.word_text.get())
        self.e1.delete(0, "end")
        self.e2.delete(0, "end")
 
    def saveDicComm(self):
        self.list1.delete(0, END)
-       self.list1.insert(END, main.saveDic())
+       self.list1.insert(END, dictionary.saveDict())
 
 window = Tk()
 Widgets(window)
