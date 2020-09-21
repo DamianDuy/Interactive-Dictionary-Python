@@ -40,13 +40,13 @@ window = Tk()
 window.title("Dictionary")
 
 l1 = Label(window, text = "Word")
-l1.grid(row = 0, column = 0, sticky = "W")
+l1.grid(row = 0, column = 0, sticky = "W", padx = 5, pady = 1)
 
 l2 = Label(window, text = "Definition")
-l2.grid(row = 1, column = 0, sticky = "W")
+l2.grid(row = 1, column = 0, sticky = "W", padx = 5, pady = 1)
 
 word_text = StringVar()
-e1 = Entry(window, textvariable = word_text, width = 15)
+e1 = Entry(window, textvariable = word_text, width = 30)
 e1.grid(row = 0, column = 1, sticky = "W")
 
 def_text = StringVar()
@@ -54,7 +54,7 @@ e2 = Entry(window, textvariable = def_text, width = 30)
 e2.grid(row = 1, column = 1, sticky = "W")
 
 list1 = Listbox(window, height = 10, width = 80)
-list1.grid(row = 2, column = 0, rowspan = 6, columnspan = 2)
+list1.grid(row = 2, column = 0, rowspan = 6, columnspan = 2, padx = 5, pady = 5)
 
 sb1 = Scrollbar(window)
 sb1.grid(row = 2, column = 2, rowspan = 6)
